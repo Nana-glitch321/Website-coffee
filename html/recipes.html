@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Компоненты напитков - Coffee World</title>
+  <link rel="stylesheet" href="../css/recipes.css">
+</head>
+<body>
+  <div class="menu-icon" id="menu-icon">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <nav class="sidebar" id="sidebar">
+    <ul>
+      <li style="--i:1"><a href="../html/home.html">Главная</a></li>
+      <li style="--i:2"><a href="../html/recipes.html">Кофейная палитра</a></li>
+      <li style="--i:3"><a href="#">История кофе</a></li>
+      <li style="--i:4"><a href="#">Энциклопедия сортов</a></li>
+      <li style="--i:5"><a href="#">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <!-- Панель фильтров -->
+  <div class="filters-panel">
+    <h3>Фильтр по категориям</h3>
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">Все</button>
+      <button class="filter-btn" data-filter="Сезонное">Сезонное</button>
+      <button class="filter-btn" data-filter="Сироп">Сиропы</button>
+      <button class="filter-btn" data-filter="Пенка">Пенки</button>
+      <button class="filter-btn" data-filter="Веганское">Веганское</button>
+    </div>
+    <div class="active-filters">
+      <span>Активные фильтры: </span>
+      <span id="active-filter-text">Все</span>
+    </div>
+  </div>
+
+  <!-- Контейнер для карточек компонентов -->
+  <div class="components-container">
+    
+    <!-- Карточка 1: Тыквенное пюре -->
+    <div class="component-card" data-category="Сезонное">
+      <div class="component-image" style="background-image: url('../jpg/pumpkin_pure.jpg')">
+        <div class="component-category">Сезонное</div>
+      </div>
+      <div class="component-content">
+        <h3 class="component-title">Тыквенное пюре</h3>
+        <p class="component-description">Натуральное пюре из запеченной тыквы с пряностями. Основа для осенних сезонных напитков.</p>
+        <div class="component-usage">
+          <h4>Используется в:</h4>
+          <p>Тыквенный латте, осенний раф, сезонные коктейли</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Карточка 2: Сырная пенка -->
+    <div class="component-card" data-category="Пенка">
+      <div class="component-image" style="background-image: url('../jpg/cheez.jpg')">
+        <div class="component-category">Пенка</div>
+      </div>
+      <div class="component-content">
+        <h3 class="component-title">Сырная пенка</h3>
+        <p class="component-description">Воздушная пенка из сливочного сыра, сливок и соли. Идеальное сочетание сладкого и соленого.</p>
+        <div class="component-usage">
+          <h4>Используется в:</h4>
+          <p>Корейский кофе, холодные напитки с сырной пенкой</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Карточка 3: Кокосовые сливки -->
+    <div class="component-card" data-category="Веганское">
+      <div class="component-image" style="background-image: url('../jpg/coconut%20cream.jpg')">
+        <div class="component-category">Веганское</div>
+      </div>
+      <div class="component-content">
+        <h3 class="component-title">Кокосовые сливки</h3>
+        <p class="component-description">Густые сливки из кокосового молока. Альтернатива обычным сливкам для веганских напитков.</p>
+        <div class="component-usage">
+          <h4>Используется в:</h4>
+          <p>Веганский латте, кокосовый раф, тропические напитки</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Карточка 4: Мятный сироп -->
+    <div class="component-card" data-category="Сироп">
+      <div class="component-image" style="background-image: url('../jpg/mint%20syrup.jpg')">
+        <div class="component-category">Сироп</div>
+      </div>
+      <div class="component-content">
+        <h3 class="component-title">Мятный сироп</h3>
+        <p class="component-description">Освежающий сироп с натуральным вкусом мяты. Добавляет прохлады любым напиткам.</p>
+        <div class="component-usage">
+          <h4>Используется в:</h4>
+          <p>Мятный мокко, мятный раф, летние коктейли</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Карточка 5: Имбирное печенье -->
+    <div class="component-card" data-category="Сезонное">
+      <div class="component-image" style="background-image: url('../jpg/gingerbread%20cookies.jpg')">
+        <div class="component-category">Сезонное</div>
+      </div>
+      <div class="component-content">
+        <h3 class="component-title">🍪 Имбирное печенье</h3>
+        <p class="component-description">Ароматное печенье с имбирем и корицей. Добавляет кофе теплые пряные нотки и хрустящую текстуру.</p>
+        <div class="component-usage">
+          <h4>Используется как:</h4>
+          <p>Крошка для топпинга, печенье для макания, основа для сиропа, пюре для кремов</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Карточка 6: Карамельный сироп -->
+    <div class="component-card" data-category="Сироп">
+      <div class="component-image" style="background-image: url('../jpg/Caramel%20syrup.jpeg')">
+        <div class="component-category">Сироп</div>
+      </div>
+      <div class="component-content">
+        <h3 class="component-title">🍮 Карамельный сироп</h3>
+        <p class="component-description">Золотистый сироп с насыщенным вкусом карамели. Добавляет напиткам сладость и ностальгические нотки жженого сахара.</p>
+        <div class="component-usage">
+          <h4>Используется в:</h4>
+          <p>Карамельный латте, макиато, фраппучино, раф-кофе, холодные напитки</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../js/recipes.js"></script>
+</body>
+</html>
