@@ -1,0 +1,324 @@
+@font-face {
+  font-family: 'BadScript-Regular';
+  src: url('../font/BadScript-Regular.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: 'BadScript-Regular';
+  color: #3b1d0b;
+  background: url('../jpg/home_fon.jpg') fixed;
+  background-size: cover;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Иконка меню */
+.menu-icon {
+  position: fixed;
+  top: 20px;
+  left: 25px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: #a67b51;
+  margin: 6px 0;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+/* Светлый крестик при открытом меню */
+.menu-icon.active .bar {
+  background-color: #29201f;
+}
+
+.menu-icon.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+.menu-icon.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Боковое меню */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 280px;
+  height: 100%;
+  background-color: #a67b51;
+  backdrop-filter: blur(4px);
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.3);
+  transition: left 0.4s ease;
+  z-index: 999;
+  padding-top: 80px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin: 45px 0;
+  text-align: left;
+  padding-left: 35px;
+}
+
+.sidebar ul li {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: fadeIn 0.6s forwards;
+}
+
+.sidebar.active ul li {
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.sidebar ul li a {
+  color: #29201f;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: bold;
+  transition: 0.3s;
+  display: block;
+}
+
+.sidebar ul li a:hover {
+  color: #c6a36b;
+  padding-left: 5px;
+}
+
+/* Анимация открытия меню */
+.sidebar.active {
+  left: 0;
+}
+
+/* Стили для панели фильтров */
+.filters-panel {
+  background: rgba(255, 253, 250, 0.9);
+  padding: 20px;
+  margin: 80px 20px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(139, 87, 42, 0.1);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.filters-panel h3 {
+  color: #3b1d0b;
+  margin: 0 0 15px 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  background: #e8d5c4;
+  border: 2px solid #a67b51;
+  border-radius: 20px;
+  color: #5a3921;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'BadScript-Regular';
+  font-size: 16px;
+}
+
+.filter-btn:hover {
+  background: #d4b9a0;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: #a67b51;
+  color: white;
+  border-color: #8B572A;
+}
+
+.active-filters {
+  text-align: center;
+  color: #5a3921;
+  font-size: 14px;
+}
+
+#active-filter-text {
+  font-weight: bold;
+  color: #8B572A;
+}
+
+/* Контейнер для карточек */
+.components-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  align-items: stretch;
+}
+
+/* Стили для карточек компонентов */
+.component-card {
+  width: 300px;
+  background: rgba(255, 253, 250, 0.95);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(139, 87, 42, 0.15);
+  transition: all 0.3s ease;
+  border: 1px solid #e8d5c4;
+  display: flex;
+  flex-direction: column;
+  height: 480px; /* Фиксированная высота для всех карточек */
+}
+
+.component-card.hidden {
+  display: none;
+}
+
+.component-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(139, 87, 42, 0.25);
+}
+
+.component-image {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  flex-shrink: 0; /* Запрещаем изображению сжиматься */
+}
+
+.component-category {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #8B572A;
+}
+
+.component-content {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Скрываем переполнение */
+}
+
+.component-title {
+  font-size: 22px;
+  color: #3b1d0b;
+  margin: 0 0 12px 0;
+  font-weight: bold;
+  flex-shrink: 0; /* Запрещаем заголовку сжиматься */
+}
+
+.component-description {
+  color: #5a3921;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  flex-grow: 1; /* Описание занимает всё доступное пространство */
+  overflow: hidden; /* Скрываем переполнение */
+}
+
+.component-usage {
+  background: rgba(166, 123, 81, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 4px solid #A67B51;
+  flex-shrink: 0; /* Запрещаем блоку использования сжиматься */
+}
+
+.component-usage h4 {
+  color: #3b1d0b;
+  margin: 0 0 8px 0;
+  font-size: 15px;
+}
+
+.component-usage p {
+  color: #5a3921;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .filters-panel {
+    margin: 70px 10px 15px;
+    padding: 15px;
+  }
+  
+  .filter-buttons {
+    gap: 8px;
+  }
+  
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+  
+  .component-card {
+    width: 100%;
+    max-width: 350px;
+    height: 460px; /* Немного меньше высота на мобильных */
+  }
+  
+  .components-container {
+    padding: 20px 10px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .components-container {
+    padding: 15px 5px;
+  }
+  
+  .component-content {
+    padding: 15px;
+  }
+  
+  .component-title {
+    font-size: 20px;
+  }
+  
+  .component-card {
+    height: 440px; /* Еще меньше на очень маленьких экранах */
+  }
+}
